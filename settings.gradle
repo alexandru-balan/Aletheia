@@ -1,0 +1,2 @@
+rootProject.name='Aletheia'
+include ':app'
