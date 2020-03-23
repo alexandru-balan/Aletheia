@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <!--Theme colors-->
+    <color name="textColor">#2F4858</color>
+    <color name="mainBrand">#86D9C8</color>
+    <color name="mainBlue">#418DC9</color>
+    <color name="mainAccent">#7E4A8D</color>
 </resources>

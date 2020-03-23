@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Aletheia</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro1_image_cd">Man reading a newspaper</string>
+    <string name="aletheia">Aletheia</string>
+    <string name="intro1_textBody">Corporate news, community vetted</string>
+    <string name="right_arrow_button">right arrow button</string>
+    <string name="intro2_headline">Aletheia relies on the community to rate news and make claims.</string>
+    <string name="intro2_body">* Claims are a way to argue the veracity of a piece of news</string>
+    <string name="intro2_image_cd">Illustration representing community vetting</string>
+    <string name="intro1_button_cd">Right pointing arrow in green</string>
+    <string name="intro2_button_cd">Right pointing arrow in blue</string>
+    <string name="intro3_banner_cd">Illustration representing moderators of the platform</string>
+    <string name="intro3_headline">We employ a team of passionate moderators that evaluate claims and balance the platform</string>
+    <string name="intro3_body">* Moderator ratings are more valuable, but anyone from the community can be promoted to moderator</string>
+    <string name="intro3_button_cd">Check-mark button in violet</string>
 </resources>

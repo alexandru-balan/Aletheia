@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".intro.fragments.Intro1"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:id="@+id/intro2_content">
+
+    <ImageView
+        android:id="@+id/intro2_banner"
+        android:layout_width="325dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="75dp"
+        android:elevation="2dp"
+        android:contentDescription="@string/intro2_image_cd"
+        android:src="@drawable/ic_community_intro2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/intro2_headline"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/ubuntu"
+        android:gravity="center"
+        android:text="@string/intro2_headline"
+        android:textColor="@color/textColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro2_banner" />
+
+    <TextView
+        android:id="@+id/intro2_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/ubuntu_light_italic"
+        android:gravity="center"
+        android:text="@string/intro2_body"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro2_headline" />
+
+
+    <ImageButton
+        android:id="@+id/intro2_button"
+        android:contentDescription="@string/intro2_button_cd"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_arrow_alt_circle_right_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro2_body" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
