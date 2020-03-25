@@ -44,7 +44,6 @@ class IntroActivity : FragmentActivity(), Intro1.OnButtonClickedListener, Intro2
             viewPager.currentItem--
         }
     }
-
     private inner class IntroPagerAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
         private var fragments : List<Fragment> =

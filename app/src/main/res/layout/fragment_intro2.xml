@@ -9,6 +9,19 @@
     android:background="#FFFFFF"
     android:id="@+id/intro2_content">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_medium"
+        android:gravity="center"
+        android:text="@string/before_word"
+        android:textColor="@color/textColor"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@id/intro2_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/intro2_banner"
         android:layout_width="325dp"

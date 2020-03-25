@@ -16,4 +16,22 @@
     <string name="intro3_headline">We employ a team of passionate moderators that evaluate claims and balance the platform</string>
     <string name="intro3_body">* Moderator ratings are more valuable, but anyone from the community can be promoted to moderator</string>
     <string name="intro3_button_cd">Check-mark button in violet</string>
+    <string name="before_word">Before Word ...</string>
+    <string name="signup_banner_cd">Illustration representing the signup activity</string>
+    <string name="signup_title">Lets Sign You Up</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="facebook_button_cd">Facebook button</string>
+    <string name="google_button_cd">Google button</string>
+    <string name="twitter_button_cd">Twitter button</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ordot">OR ...</string>
+    <string name="take_me_to_login">Take me to LogIn</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcome_back_friend">Welcome back, friend</string>
+    <string name="login_banner_cd">Illustration representing the authentication activity</string>
+    <string name="log_in">Log in</string>
+    <string name="or_sign_in_with">Or sign in with</string>
+    <string name="back_button_cd">Back button</string>
 </resources>
