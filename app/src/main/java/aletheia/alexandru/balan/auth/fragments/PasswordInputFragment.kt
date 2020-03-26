@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.fragment_password_input.*
 class PasswordInputFragment : Fragment() {
 
     private val passwordMatcher : Regex = Regex("(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#$%^&*()\\-_+={}\\[\\]|;:\"<>,./?]).{8,}")
-    private var validPassword : Boolean = false
+    var validPassword : Boolean = false
+    var password : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +53,7 @@ class PasswordInputFragment : Fragment() {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     val str = s.toString()
-
+                    password = str
                     val warningText = activity?.findViewById<TextView>(R.id.warning_text)
 
                     validPassword = passwordMatcher matches str

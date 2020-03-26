@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.fragment_email_input.*
 
 class EmailInputFragment : Fragment() {
 
-    private var validEmail: Boolean = false
+    var validEmail: Boolean = false
+    var email : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,9 +51,8 @@ class EmailInputFragment : Fragment() {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
                     validEmail = Regex(Patterns.EMAIL_ADDRESS.toString()) matches s.toString()
-
+                    email = s.toString()
                 }
 
             })
