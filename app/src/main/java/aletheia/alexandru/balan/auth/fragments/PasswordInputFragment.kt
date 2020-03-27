@@ -1,6 +1,7 @@
 package aletheia.alexandru.balan.auth.fragments
 
 import aletheia.alexandru.balan.R
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -55,6 +56,7 @@ class PasswordInputFragment : Fragment() {
                     val str = s.toString()
                     password = str
                     val warningText = activity?.findViewById<TextView>(R.id.warning_text)
+                    warningText?.setTextColor(Color.RED)
 
                     validPassword = passwordMatcher matches str
                     if (!str.contains(Regex("[\\d]"))) {
