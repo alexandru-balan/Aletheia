@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Aletheia</string>
 
+    <!-- Facebook string resources -->
+    <string name="facebook_app_id">1095513347486180</string>
+    <string name="fb_login_protocol_scheme">fb1095513347486180</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro1_image_cd">Man reading a newspaper</string>

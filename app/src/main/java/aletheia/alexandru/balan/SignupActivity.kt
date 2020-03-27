@@ -7,11 +7,17 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -27,6 +33,7 @@ class SignupActivity : FragmentActivity() {
     private lateinit var googleSignInOptions : GoogleSignInOptions
     lateinit var googleSignInClient : GoogleSignInClient
     private val RC_SIGNIN : Int = 1
+    private val callbackManager = CallbackManager.Factory.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,9 +78,30 @@ class SignupActivity : FragmentActivity() {
             }
         }
 
+        // Google Button
         signup_google.setOnClickListener {
             signInWithGoogle()
         }
+
+        //Facebook Button
+        signup_facebook.setPermissions("email", "public_profile")
+        custom_facebook_button.setOnClickListener { signup_facebook.performClick() }
+        signup_facebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+                Log.i (TAG, "Facebook Auth successful")
+                if (result != null) {
+                    firebaseAuthWithFacebook(result.accessToken)
+                }
+            }
+
+            override fun onCancel() {
+                Log.d(TAG, "Facebook Auth Canceled")
+            }
+
+            override fun onError(error: FacebookException?) {
+                Log.w(TAG, "Facebook Auth error", error)
+            }
+        })
     }
 
     private fun signInWithGoogle() {
@@ -94,6 +122,9 @@ class SignupActivity : FragmentActivity() {
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
+        else {
+            callbackManager.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     private fun firebaseAuthWithGoogle(account : GoogleSignInAccount) {
@@ -107,6 +138,21 @@ class SignupActivity : FragmentActivity() {
             else {
                 Log.w(TAG, "Google auth fail", task.exception)
                 Toast.makeText(baseContext, "Sign in failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithFacebook(token : AccessToken) {
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        auth.signInWithCredential(credential).addOnCompleteListener(this) {
+            task->
+            if (task.isSuccessful) {
+                Log.i(TAG, "Facebook auth successful")
+                user = auth.currentUser!!
+            }
+            else {
+                Log.w(TAG, "Facebook auth failure", task.exception)
+                Toast.makeText(baseContext, "Can't connect with facebook. Check internet", Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -84,7 +84,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:elevation="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/signup_facebook"
+        app:layout_constraintBottom_toTopOf="@+id/facebook_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,21 +99,38 @@
         android:contentDescription="@string/google_button_cd"
         app:layout_constraintEnd_toStartOf="@+id/signup_twitter"
         app:layout_constraintHorizontal_bias="5"
-        app:layout_constraintStart_toEndOf="@+id/signup_facebook"
+        app:layout_constraintStart_toEndOf="@+id/facebook_container"
         app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 
-    <ImageButton
-        android:id="@+id/signup_facebook"
+    <FrameLayout
+        android:id="@+id/facebook_container"
         android:layout_width="45dp"
         android:layout_height="48dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/ic_facebook_square"
-        android:contentDescription="@string/facebook_button_cd"
         app:layout_constraintEnd_toStartOf="@+id/signup_google"
         app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_button"
+        >
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/signup_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </com.facebook.login.widget.LoginButton>
+
+        <ImageButton
+            android:id="@+id/custom_facebook_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_facebook_square"
+            android:contentDescription="@string/facebook_button_cd"
+             />
+
+    </FrameLayout>
 
     <ImageButton
         android:id="@+id/signup_twitter"
