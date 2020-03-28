@@ -1,6 +1,7 @@
 package aletheia.alexandru.balan.intro.fragments
 
 import aletheia.alexandru.balan.R
+import aletheia.alexandru.balan.intro.fragments.Intro2.OnButtonClickedListener
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +10,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_intro2.*
 
+/**
+ * This [Fragment] is the second slide of the intro activity.
+ * Use [Intro2.newInstance] to get an instance of this fragment.
+ *
+ * Communication between this fragment and the IntroActivity is done through the interface
+ * [OnButtonClickedListener]
+ */
 class Intro2 : Fragment() {
-
     private var listener : OnButtonClickedListener? = null
 
     override fun onCreateView(

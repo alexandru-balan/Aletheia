@@ -1,5 +1,6 @@
-package aletheia.alexandru.balan
+package aletheia.alexandru.balan.auth
 
+import aletheia.alexandru.balan.R
 import aletheia.alexandru.balan.auth.fragments.EmailInputFragment
 import aletheia.alexandru.balan.auth.fragments.PasswordInputFragment
 import android.content.Intent
@@ -29,10 +30,10 @@ class SignupActivity : FragmentActivity() {
     private lateinit var emailInputFragment: EmailInputFragment
     private lateinit var user : FirebaseUser
     private lateinit var auth : FirebaseAuth
-    private var TAG : String = "Aletheia"
+    private var logTag : String = "Aletheia"
     private lateinit var googleSignInOptions : GoogleSignInOptions
     lateinit var googleSignInClient : GoogleSignInClient
-    private val RC_SIGNIN : Int = 1
+    private val signinRequestCode : Int = 1
     private val callbackManager = CallbackManager.Factory.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +48,7 @@ class SignupActivity : FragmentActivity() {
             .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
-        user = auth.currentUser!!
+        //user = auth.currentUser!!
         /**
          * TODO: Implement checks to see if the user is already logged in and redirect directly to app
          * */
@@ -66,12 +67,12 @@ class SignupActivity : FragmentActivity() {
                 ).addOnCompleteListener(this) {
                     task ->
                     if (task.isSuccessful) {
-                        Log.i(TAG, "Successfully created user")
+                        Log.i(logTag, "Successfully created user")
                         user = auth.currentUser!!
                         // TODO: Redirect to app
                     }
                     else {
-                        Log.w(TAG, "Could not create the user", task.exception)
+                        Log.w(logTag, "Could not create the user", task.exception)
                         Toast.makeText(baseContext, "Can't sign you up right now. Check internet connection!", Toast.LENGTH_LONG).show()
                     }
                 }
@@ -88,38 +89,38 @@ class SignupActivity : FragmentActivity() {
         custom_facebook_button.setOnClickListener { signup_facebook.performClick() }
         signup_facebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
-                Log.i (TAG, "Facebook Auth successful")
+                Log.i (logTag, "Facebook Auth successful")
                 if (result != null) {
                     firebaseAuthWithFacebook(result.accessToken)
                 }
             }
 
             override fun onCancel() {
-                Log.d(TAG, "Facebook Auth Canceled")
+                Log.d(logTag, "Facebook Auth Canceled")
             }
 
             override fun onError(error: FacebookException?) {
-                Log.w(TAG, "Facebook Auth error", error)
+                Log.w(logTag, "Facebook Auth error", error)
             }
         })
     }
 
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGNIN)
+        startActivityForResult(signInIntent, signinRequestCode)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGNIN) {
+        if (requestCode == signinRequestCode) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             }
             catch (e : ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
+                Log.w(logTag, "Google sign in failed", e)
             }
         }
         else {
@@ -128,15 +129,15 @@ class SignupActivity : FragmentActivity() {
     }
 
     private fun firebaseAuthWithGoogle(account : GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken, null);
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener(this) {
             task ->
             if(task.isSuccessful) {
-                Log.i (TAG, "Google auth success")
+                Log.i (logTag, "Google auth success")
                 user = auth.currentUser!!
             }
             else {
-                Log.w(TAG, "Google auth fail", task.exception)
+                Log.w(logTag, "Google auth fail", task.exception)
                 Toast.makeText(baseContext, "Sign in failed", Toast.LENGTH_SHORT).show()
             }
         }
@@ -147,11 +148,11 @@ class SignupActivity : FragmentActivity() {
         auth.signInWithCredential(credential).addOnCompleteListener(this) {
             task->
             if (task.isSuccessful) {
-                Log.i(TAG, "Facebook auth successful")
+                Log.i(logTag, "Facebook auth successful")
                 user = auth.currentUser!!
             }
             else {
-                Log.w(TAG, "Facebook auth failure", task.exception)
+                Log.w(logTag, "Facebook auth failure", task.exception)
                 Toast.makeText(baseContext, "Can't connect with facebook. Check internet", Toast.LENGTH_LONG).show()
             }
         }

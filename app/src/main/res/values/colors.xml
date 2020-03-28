@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
 
-    <!--Theme colors-->
-    <color name="textColor">#2F4858</color>
-    <color name="mainBrand">#86D9C8</color>
-    <color name="mainBlue">#418DC9</color>
-    <color name="mainAccent">#7E4A8D</color>
+    <!-- Brand colors -->
+    <color name="text_color">#464555</color>
+    <color name="brand_color">#7082FD</color>
+    <color name="brand_color_dark">#00197B</color>
+    <color name="brand_color_sister">#E675E2</color>
+    <color name="mild_color_rose">#FF79B2</color>
+    <color name="mild_color_beige">#FF9B81</color>
+    <color name="accent_color">#F9F871</color>
+    <color name="accent_color_darker">#FFCA63</color>
+
+    <!-- UI colors -->
+    <color name="warning_color">#F7525F</color>
+    <color name="valid_color">#1DC198</color>
+    <color name="info_color">#8E8DB9</color>
+
 </resources>

@@ -6,11 +6,11 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        android:contentDescription="@string/back_button_cd"
         android:layout_width="25dp"
         android:layout_height="28dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/ic_arrow_left"
+        android:contentDescription="@string/back_button_cd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:fontFamily="@font/ubuntu_medium"
         android:gravity="center"
         android:text="@string/welcome_back_friend"
-        android:textColor="@color/textColor"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.362"
@@ -94,7 +94,7 @@
         android:fontFamily="@font/ubuntu"
         android:gravity="center"
         android:text="@string/or_sign_in_with"
-        android:textColor="@color/textColor"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
@@ -105,7 +105,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/ic_google"
         android:contentDescription="@string/google_button_cd"
-        app:layout_constraintEnd_toStartOf="@+id/login_twitter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toEndOf="@+id/login_facebook"
         app:layout_constraintTop_toBottomOf="@+id/or_tv" />
@@ -114,7 +114,6 @@
         android:id="@+id/login_facebook"
         android:layout_width="45dp"
         android:layout_height="48dp"
-        android:layout_marginStart="45dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/ic_facebook_square"
         android:contentDescription="@string/facebook_button_cd"
@@ -123,17 +122,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/or_tv" />
 
-    <ImageButton
-        android:id="@+id/login_twitter"
-        android:layout_width="45dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="45dp"
-        android:background="@drawable/ic_twitter_square"
-        android:contentDescription="@string/twitter_button_cd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="5"
-        app:layout_constraintStart_toEndOf="@+id/login_google"
-        app:layout_constraintTop_toBottomOf="@+id/or_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,20 +37,20 @@
         </activity>
 
 
-        <activity android:name=".IntroActivity">
+        <activity android:name=".intro.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignupActivity"
-            android:parentActivityName=".IntroActivity">
+        <activity android:name=".auth.SignupActivity"
+            android:parentActivityName=".intro.IntroActivity">
 
         </activity>
 
-        <activity android:name=".LogInActivity"
-            android:parentActivityName=".SignupActivity"/>
+        <activity android:name=".auth.LogInActivity"
+            android:parentActivityName=".auth.SignupActivity"/>
 
     </application>
 

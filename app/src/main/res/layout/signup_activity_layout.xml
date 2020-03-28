@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -13,7 +12,7 @@
         android:fontFamily="@font/ubuntu_medium"
         android:gravity="center"
         android:text="@string/signup_title"
-        android:textColor="@color/textColor"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/signup_banner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,9 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="@color/textColor"
+        android:text="@string/type_your_password"
+        android:textColor="@color/text_color"
         android:textSize="16sp"
-        android:text="Type your password"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/signup_passwordFragment"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,12 +77,12 @@
         android:layout_marginHorizontal="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/rounded_button_background_accent"
+        android:elevation="4dp"
         android:fontFamily="@font/ubuntu_medium"
         android:gravity="center"
         android:text="@string/sign_up"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:elevation="4dp"
         app:layout_constraintBottom_toTopOf="@+id/facebook_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -97,7 +96,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/ic_google"
         android:contentDescription="@string/google_button_cd"
-        app:layout_constraintEnd_toStartOf="@+id/signup_twitter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toEndOf="@+id/facebook_container"
         app:layout_constraintTop_toBottomOf="@+id/signup_button" />
@@ -106,13 +105,11 @@
         android:id="@+id/facebook_container"
         android:layout_width="45dp"
         android:layout_height="48dp"
-        android:layout_marginStart="45dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toStartOf="@+id/signup_google"
         app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/signup_button">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/signup_facebook"
@@ -127,23 +124,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ic_facebook_square"
-            android:contentDescription="@string/facebook_button_cd"
-             />
+            android:contentDescription="@string/facebook_button_cd" />
 
     </FrameLayout>
-
-    <ImageButton
-        android:id="@+id/signup_twitter"
-        android:layout_width="45dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="45dp"
-        android:background="@drawable/ic_twitter_square"
-        android:contentDescription="@string/twitter_button_cd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="5"
-        app:layout_constraintStart_toEndOf="@+id/signup_google"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 
     <Button
         android:id="@+id/goto_login"
@@ -151,13 +134,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:background="@drawable/rounded_button_background_main"
-        android:backgroundTint="@color/mainBrand"
+        android:backgroundTint="@color/brand_color"
+        android:elevation="32dp"
         android:fontFamily="@font/ubuntu_medium"
         android:text="@string/take_me_to_login"
         android:textAllCaps="false"
-        android:textColor="@color/textColor"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
-        android:elevation="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

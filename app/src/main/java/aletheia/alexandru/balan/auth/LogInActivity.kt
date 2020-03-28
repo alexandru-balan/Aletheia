@@ -1,5 +1,6 @@
-package aletheia.alexandru.balan
+package aletheia.alexandru.balan.auth
 
+import aletheia.alexandru.balan.R
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.login_activity_layout.*

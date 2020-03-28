@@ -1,24 +1,25 @@
 package aletheia.alexandru.balan.intro.fragments
 
+import aletheia.alexandru.balan.R
+import aletheia.alexandru.balan.intro.fragments.Intro1.OnButtonClickedListener
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import aletheia.alexandru.balan.R
-import android.content.Context
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_intro1.*
-import java.lang.ClassCastException
 
 /**
- * A simple [Fragment] subclass.
- * Use the [Intro1.newInstance] factory method to
- * create an instance of this fragment.
+ * This [Fragment] is the first slide of the intro activity.
+ * Use [Intro1.newInstance] to get an instance of this fragment.
+ *
+ * Communication between this fragment and the IntroActivity is done through the interface
+ * [OnButtonClickedListener]
  */
 class Intro1 : Fragment() {
-
-    private var listener : OnButtonClickedListener? = null
+    // The instance of the implemented listener from IntroActivity
+    private var listener: OnButtonClickedListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +44,6 @@ class Intro1 : Fragment() {
         if (listener == null) {
             throw ClassCastException("$context must implement OnButton1Clicked method")
         }
-
     }
 
     companion object {
@@ -51,7 +51,7 @@ class Intro1 : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @return A new instance of fragment Intro1.
+         * @return A new instance of Intro1.
          */
         @JvmStatic
         fun newInstance() = Intro1()

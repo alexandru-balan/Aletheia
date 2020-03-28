@@ -8,12 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:autofillHints="email"
-        android:fontFamily="@font/ubuntu"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email"
-        android:gravity="center"
         android:background="@drawable/rounded_button_background"
-        />
+        android:fontFamily="@font/ubuntu"
+        android:gravity="center"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
