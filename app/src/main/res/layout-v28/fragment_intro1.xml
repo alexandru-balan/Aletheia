@@ -49,7 +49,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
-        android:fontFamily="@font/ubuntu"
+        android:fontFamily="@font/cantarell"
         android:gravity="center"
         android:text="@string/intro1_textBody"
         android:textColor="@color/text_color"

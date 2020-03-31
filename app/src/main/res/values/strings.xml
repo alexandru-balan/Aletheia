@@ -6,7 +6,7 @@
     <string name="fb_login_protocol_scheme">fb1095513347486180</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Intro Activity and Fragments -->
     <string name="intro1_image_cd">Man reading a newspaper</string>
     <string name="aletheia">Aletheia</string>
     <string name="intro1_textBody">Corporate news, community vetted</string>
@@ -21,6 +21,8 @@
     <string name="intro3_body">* Moderator ratings are more valuable, but anyone from the community can be promoted to moderator</string>
     <string name="intro3_button_cd">Check-mark button in violet</string>
     <string name="before_word">Before Word …</string>
+
+    <!-- Authentication Activity and Fragments -->
     <string name="signup_banner_cd">Illustration representing the signup activity</string>
     <string name="signup_title">Lets Sign You Up</string>
     <string name="first_name">First name</string>
@@ -39,4 +41,5 @@
     <string name="or_sign_in_with">Or sign in with</string>
     <string name="back_button_cd">Back button</string>
     <string name="type_your_password">Type your password</string>
+    <string name="i_already_have_an_account">I already have an account</string>
 </resources>

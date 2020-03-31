@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Brand colors -->
-    <color name="text_color">#464555</color>
+    
     <color name="brand_color">#7082FD</color>
     <color name="brand_color_dark">#00197B</color>
     <color name="brand_color_sister">#E675E2</color>
@@ -15,5 +15,7 @@
     <color name="warning_color">#F7525F</color>
     <color name="valid_color">#1DC198</color>
     <color name="info_color">#8E8DB9</color>
-
+    <color name="text_color">#464555</color>
+    <color name="text_color_white">#F9F8FF</color>
+    
 </resources>

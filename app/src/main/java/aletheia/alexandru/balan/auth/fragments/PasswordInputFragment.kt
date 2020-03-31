@@ -1,7 +1,6 @@
 package aletheia.alexandru.balan.auth.fragments
 
 import aletheia.alexandru.balan.R
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -29,7 +28,7 @@ class PasswordInputFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity?.localClassName == "SignupActivity") {
+        if (activity?.localClassName == "auth.SignupActivity") {
 
             password_input.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -56,7 +55,7 @@ class PasswordInputFragment : Fragment() {
                     val str = s.toString()
                     password = str
                     val warningText = activity?.findViewById<TextView>(R.id.warning_text)
-                    warningText?.setTextColor(Color.RED)
+                    warningText?.setTextColor(resources.getColor(R.color.warning_color, null))
 
                     validPassword = passwordMatcher matches str
                     if (!str.contains(Regex("[\\d]"))) {
