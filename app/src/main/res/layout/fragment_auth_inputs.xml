@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.fragments.AuthInputsFragment">
+
+    <fragment
+        android:id="@+id/email_input"
+        android:name="aletheia.alexandru.balan.auth.fragments.EmailInputFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_xl"
+        android:layout_marginTop="@dimen/margin_m"
+        app:layout_constraintBottom_toTopOf="@id/warning_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_email_input" />
+
+    <TextView
+        android:id="@+id/warning_text"
+        style="@style/NormalText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_xl"
+        android:layout_marginTop="@dimen/margin_s"
+        android:gravity="center"
+        android:text="@string/type_your_password"
+        app:layout_constraintBottom_toTopOf="@id/password_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_input" />
+
+    <fragment
+        android:id="@+id/password_input"
+        android:name="aletheia.alexandru.balan.auth.fragments.PasswordInputFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_xl"
+        android:layout_marginTop="@dimen/margin_xs"
+        app:layout_constraintBottom_toTopOf="@id/signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/warning_text"
+        tools:layout="@layout/fragment_password_input" />
+
+    <Button
+        android:id="@+id/signup_button"
+        style="@style/NormalButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_il"
+        android:layout_marginTop="@dimen/margin_s"
+        android:background="@drawable/rounded_button_background_accent_darker"
+        android:text="@string/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
+
+    <ImageButton
+        android:id="@+id/signup_google"
+        android:layout_width="45dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="@dimen/margin_il"
+        android:background="@drawable/ic_google"
+        android:contentDescription="@string/google_button_cd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/facebook_container"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
+
+    <FrameLayout
+        android:id="@+id/facebook_container"
+        android:layout_width="45dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/margin_il"
+        app:layout_constraintEnd_toStartOf="@+id/signup_google"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/signup_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </com.facebook.login.widget.LoginButton>
+
+        <ImageButton
+            android:id="@+id/custom_facebook_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_facebook_square"
+            android:contentDescription="@string/facebook_button_cd" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

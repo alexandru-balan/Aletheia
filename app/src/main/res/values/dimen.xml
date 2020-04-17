@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text dimensions -->
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="normal_text_size">20sp</dimen>
+    <dimen name="small_text_size">18sp</dimen>
+
+    <!-- Margins and padings -->
+    <dimen name="margin_xs">5dp</dimen>
+    <dimen name="margin_s">7dp</dimen>
+    <dimen name="margin_m">10dp</dimen>
+    <dimen name="margin_l">12dp</dimen>
+    <dimen name="margin_xl">18dp</dimen>
+    <dimen name="margin_xxl">20dp</dimen>
+    <dimen name="margin_il">28dp</dimen>
+</resources>

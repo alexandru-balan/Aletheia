@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/accent_color</item>
     </style>
 
+    <style name="Title">
+        <item name="android:fontFamily">@font/cantarell_bold</item>
+        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="NormalText">
+        <item name="android:fontFamily">@font/cantarell</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="InputFields">
+        <item name="android:fontFamily">@font/cantarell</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/rounded_button_background</item>
+    </style>
+
+    <style name="NormalButton">
+        <item name="android:fontFamily">@font/cantarell_bold</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

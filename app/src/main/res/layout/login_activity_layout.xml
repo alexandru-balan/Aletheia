@@ -38,7 +38,7 @@
         android:layout_marginTop="75dp"
         android:contentDescription="@string/login_banner_cd"
         android:elevation="2dp"
-        android:src="@drawable/ic_login"
+        android:src="@drawable/il_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

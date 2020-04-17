@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="18dp"
         android:contentDescription="@string/signup_banner_cd"
-        android:src="@drawable/ic_signup"
+        android:src="@drawable/il_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="72dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/rounded_button_background_accent"
+        android:background="@drawable/rounded_button_background_accent_darker"
         android:fontFamily="@font/cantarell_bold"
         android:gravity="center"
         android:text="@string/sign_up"
