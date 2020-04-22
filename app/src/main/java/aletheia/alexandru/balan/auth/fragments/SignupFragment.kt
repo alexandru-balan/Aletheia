@@ -28,7 +28,7 @@ class SignupFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         exitTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_right)
+            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_left)
     }
 
     override fun onCreateView(

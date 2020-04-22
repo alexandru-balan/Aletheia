@@ -27,9 +27,9 @@ class LoginFragment : Fragment() {
 
         // Transition management
         enterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_left)
-        exitTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.slide_right)
+        exitTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_left)
         sharedElementEnterTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
