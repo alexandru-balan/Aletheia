@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_password_input.*
 
@@ -16,6 +17,13 @@ class PasswordInputFragment : Fragment() {
     private val passwordMatcher : Regex = Regex("(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#$%^&*()\\-_+={}\\[\\]|;:\"<>,./?]).{8,}")
     var validPassword : Boolean = false
     var password : String = ""
+    private lateinit var receivedPasswordText: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        receivedPasswordText = requireArguments()["passwordText"] as String
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +36,10 @@ class PasswordInputFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity?.localClassName == "auth.SignupActivity") {
+        password_input.setText(receivedPasswordText)
+        password = receivedPasswordText
+
+        if (parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment") {
 
             password_input.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -84,7 +95,11 @@ class PasswordInputFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = PasswordInputFragment()
+        fun newInstance(passwordText: String = "") = PasswordInputFragment().apply {
+            arguments = bundleOf(
+                "passwordText" to passwordText
+            )
+        }
 
     }
 

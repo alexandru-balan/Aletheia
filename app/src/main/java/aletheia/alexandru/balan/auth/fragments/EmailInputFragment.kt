@@ -8,6 +8,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_email_input.*
 
@@ -15,6 +16,13 @@ class EmailInputFragment : Fragment() {
 
     var validEmail: Boolean = false
     var email : String = ""
+    private lateinit var receivedEmailText: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        receivedEmailText = requireArguments()["emailText"] as String
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +35,10 @@ class EmailInputFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity?.localClassName == "SignupActivity") {
+        email_input.setText(receivedEmailText)
+        email = receivedEmailText
+
+        if (parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment") {
 
             email_input.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -62,7 +73,11 @@ class EmailInputFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = EmailInputFragment()
+        fun newInstance(emailText: String = "") = EmailInputFragment().apply {
+            arguments = bundleOf(
+                "emailText" to emailText
+            )
+        }
 
     }
 

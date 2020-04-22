@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".auth.fragments.AuthInputsFragment">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/email_input"
-        android:name="aletheia.alexandru.balan.auth.fragments.EmailInputFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_xl"
@@ -33,9 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_input" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/password_input"
-        android:name="aletheia.alexandru.balan.auth.fragments.PasswordInputFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_xl"

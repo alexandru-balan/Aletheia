@@ -2,10 +2,14 @@ package aletheia.alexandru.balan.auth.fragments
 
 import aletheia.alexandru.balan.R
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.FragmentTransaction
+import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
  * A simple [Fragment] subclass.
@@ -13,6 +17,26 @@ import androidx.fragment.app.Fragment
  * create an instance of this fragment.
  */
 class LoginFragment : Fragment() {
+
+    private lateinit var emailText: String
+    private lateinit var passwordText: String
+    private lateinit var authInputsContainerView: FragmentContainerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Transition management
+        enterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_left)
+        exitTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_right)
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+        // Arguments from SignupFragment
+        emailText = requireArguments()["emailText"] as String
+        passwordText = requireArguments()["passwordText"] as String
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +46,16 @@ class LoginFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        authInputsContainerView = input_fields
+
+        val authInputsFragment = AuthInputsFragment.newInstance(emailText, passwordText)
+
+        val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.input_fields, authInputsFragment).commit()
+    }
 
     companion object {
         /**
@@ -31,6 +65,6 @@ class LoginFragment : Fragment() {
          * @return A new instance of fragment LoginFragment.
          */
         @JvmStatic
-        fun newInstance() = LoginFragment()
+        fun newInstance(emailText: String = "") = LoginFragment()
     }
 }

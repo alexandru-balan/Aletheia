@@ -2,12 +2,16 @@ package aletheia.alexandru.balan.auth.fragments
 
 import aletheia.alexandru.balan.R
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import kotlinx.android.synthetic.main.fragment_signup.*
 
 /**
@@ -17,7 +21,15 @@ import kotlinx.android.synthetic.main.fragment_signup.*
  */
 class SignupFragment : Fragment() {
 
+    private lateinit var authInputsContainerView: FragmentContainerView
     private lateinit var authInputsFragment: AuthInputsFragment
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        exitTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.slide_right)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,19 +42,25 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        authInputsFragment = input_fields as AuthInputsFragment
+        authInputsContainerView = input_fields
 
-        val args = bundleOf(
-            "inputs" to authInputsFragment
-        )
+        // Dynamically add the authentication input fields
+        authInputsFragment = AuthInputsFragment.newInstance()
+        val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.input_fields, authInputsFragment).commit()
 
         // Initialize button click handlers
-        goto_login.setOnClickListener(
-            Navigation.createNavigateOnClickListener(
-                R.id.login_fragment,
-                args
+        goto_login.setOnClickListener {
+            val extras = FragmentNavigatorExtras(
+                authInputsContainerView to "authInputs"
             )
-        )
+            val args = bundleOf(
+                "emailText" to authInputsFragment.emailInputFragment.email,
+                "passwordText" to authInputsFragment.passwordInputFragment.password
+            )
+            it.findNavController()
+                .navigate(R.id.action_signup_fragment_to_login_fragment, args, null, extras)
+        }
 
     }
 

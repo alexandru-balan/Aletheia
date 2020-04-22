@@ -1,7 +1,7 @@
 package aletheia.alexandru.balan.intro.fragments
 
 import aletheia.alexandru.balan.R
-import aletheia.alexandru.balan.auth.SignupActivity
+import aletheia.alexandru.balan.auth.AuthActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +29,7 @@ class Intro3 : Fragment() {
         // This listener finishes the intro activity, so the user can't go back to it and starts
         // the authentication activity
         intro3_button.setOnClickListener {
-            val intent = Intent(activity, SignupActivity::class.java)
+            val intent = Intent(activity, AuthActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }

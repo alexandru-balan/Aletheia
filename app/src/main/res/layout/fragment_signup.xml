@@ -31,9 +31,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup_title" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
+        android:transitionName="authInputs"
         android:id="@+id/input_fields"
-        android:name="aletheia.alexandru.balan.auth.fragments.AuthInputsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_m"
