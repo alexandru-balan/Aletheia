@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentTransaction
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -43,18 +43,16 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        authInputsContainerView = input_fields
+        authInputsContainerView = view.input_fields
 
         val authInputsFragment = AuthInputsFragment.newInstance(emailText, passwordText)
 
         val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.input_fields, authInputsFragment).commit()
+        transaction.replace(authInputsContainerView.id, authInputsFragment).commit()
+
+        return view
     }
 
     companion object {
