@@ -17,5 +17,6 @@
     <color name="info_color">#8E8DB9</color>
     <color name="text_color">#464555</color>
     <color name="text_color_white">#F9F8FF</color>
+    <color name="pure_white">#FFFFFF</color>
     
 </resources>
