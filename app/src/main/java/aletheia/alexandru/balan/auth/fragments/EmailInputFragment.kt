@@ -38,36 +38,38 @@ class EmailInputFragment : Fragment() {
         email_input.setText(receivedEmailText)
         email = receivedEmailText
 
-        if (parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment") {
-
-            email_input.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                    if (validEmail) {
-                        email_input.background =
-                            activity?.getDrawable(R.drawable.rounded_button_valid)
-                    } else {
-                        email_input.background =
-                            activity?.getDrawable(R.drawable.rounded_button_invalid)
-                    }
-                }
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
+        email_input.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (validEmail and onSignup()) {
                     email_input.background =
-                        activity?.getDrawable(R.drawable.rounded_button_background)
+                        activity?.getDrawable(R.drawable.rounded_button_valid)
+                } else if (onSignup()) {
+                    email_input.background =
+                        activity?.getDrawable(R.drawable.rounded_button_invalid)
                 }
+            }
 
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    validEmail = Regex(Patterns.EMAIL_ADDRESS.toString()) matches s.toString()
-                    email = s.toString()
-                }
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                email_input.background =
+                    activity?.getDrawable(R.drawable.rounded_button_background)
+            }
 
-            })
-        }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                validEmail = Regex(Patterns.EMAIL_ADDRESS.toString()) matches s.toString()
+                email = s.toString()
+            }
+
+        })
+
+    }
+
+    private fun onSignup(): Boolean {
+        return parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment"
     }
 
     companion object {

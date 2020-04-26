@@ -39,32 +39,32 @@ class PasswordInputFragment : Fragment() {
         password_input.setText(receivedPasswordText)
         password = receivedPasswordText
 
-        if (parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment") {
-
-            password_input.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                    if (validPassword) {
-                        password_input.background =
-                            activity?.getDrawable(R.drawable.rounded_button_valid)
-                    } else {
-                        password_input.background =
-                            activity?.getDrawable(R.drawable.rounded_button_invalid)
-                    }
-                }
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
+        password_input.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (validPassword and onSignup()) {
                     password_input.background =
-                        activity?.getDrawable(R.drawable.rounded_button_background)
+                        activity?.getDrawable(R.drawable.rounded_button_valid)
+                } else if (onSignup()) {
+                    password_input.background =
+                        activity?.getDrawable(R.drawable.rounded_button_invalid)
                 }
+            }
 
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    val str = s.toString()
-                    password = str
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                password_input.background =
+                    activity?.getDrawable(R.drawable.rounded_button_background)
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val str = s.toString()
+                password = str
+
+                if (onSignup()) {
                     val warningText = activity?.findViewById<TextView>(R.id.warning_text)
                     warningText?.setTextColor(resources.getColor(R.color.warning_color, null))
 
@@ -88,8 +88,13 @@ class PasswordInputFragment : Fragment() {
                         warningText?.visibility = View.GONE
                     }
                 }
-            })
-        }
+            }
+        })
+
+    }
+
+    private fun onSignup(): Boolean {
+        return parentFragment?.parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment"
     }
 
     companion object {

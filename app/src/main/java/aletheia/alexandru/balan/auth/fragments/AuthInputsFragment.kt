@@ -1,6 +1,7 @@
 package aletheia.alexandru.balan.auth.fragments
 
 import aletheia.alexandru.balan.R
+import aletheia.alexandru.balan.playground.HomeActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -87,26 +88,56 @@ class AuthInputsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth_button.setOnClickListener {
-            if (passwordInputFragment.validPassword && emailInputFragment.validEmail) {
-                activity?.let { it1 ->
-                    auth.createUserWithEmailAndPassword(
-                        emailInputFragment.email,
-                        passwordInputFragment.password
-                    ).addOnCompleteListener(it1) { task ->
-                        if (task.isSuccessful) {
-                            Log.i(logTag, "Successfully created user")
-                            user = auth.currentUser!!
-                            // TODO: Redirect to app
-                        } else {
-                            Log.w(logTag, "Could not create the user", task.exception)
-                            Toast.makeText(
-                                context,
-                                "Can't sign you up right now. Check internet connection!",
-                                Toast.LENGTH_LONG
-                            ).show()
+        if (parentFragment?.javaClass?.name == "aletheia.alexandru.balan.auth.fragments.SignupFragment") {
+            auth_button.setOnClickListener {
+                if (passwordInputFragment.validPassword && emailInputFragment.validEmail) {
+                    activity?.let { it1 ->
+                        auth.createUserWithEmailAndPassword(
+                            emailInputFragment.email,
+                            passwordInputFragment.password
+                        ).addOnCompleteListener(it1) { task ->
+                            if (task.isSuccessful) {
+                                Log.i(logTag, "Successfully created user")
+                                user = auth.currentUser!!
+                                // TODO: Redirect to app
+                            } else {
+                                Log.w(logTag, "Could not create the user", task.exception)
+                                Toast.makeText(
+                                    context,
+                                    "Can't sign you up right now. Check internet connection!",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
                         }
                     }
+                }
+            }
+        } else {
+            auth_button.setOnClickListener {
+                activity?.let { activity ->
+                    auth.signInWithEmailAndPassword(
+                        emailInputFragment.email,
+                        passwordInputFragment.password
+                    )
+                        .addOnCompleteListener(activity) { task ->
+                            if (task.isSuccessful) {
+                                Log.i(logTag, "Authentication successful")
+                                user = auth.currentUser!!
+
+                                // Go to home activity
+                                val intent = Intent(context, HomeActivity::class.java)
+                                val args = bundleOf("user" to user)
+                                startActivity(intent, args)
+                                activity.finish()
+                            } else {
+                                Log.e(logTag, "Authentication failure")
+                                Toast.makeText(
+                                    context,
+                                    "Authentication failed! Check network and try again",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
                 }
             }
         }
