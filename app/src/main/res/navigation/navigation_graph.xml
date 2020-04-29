@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    android:label="Signup"
+    app:startDestination="@id/signup_fragment">
+
+    <fragment
+        android:id="@+id/signup_fragment"
+        android:name="aletheia.alexandru.balan.auth.fragments.SignupFragment"
+        android:label="Signup"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signup_fragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="aletheia.alexandru.balan.auth.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+</navigation>

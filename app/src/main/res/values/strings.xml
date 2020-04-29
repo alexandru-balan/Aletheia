@@ -1,3 +1,66 @@
 <resources>
     <string name="app_name">Aletheia</string>
+
+    <!-- Facebook string resources -->
+    <string name="facebook_app_id">1095513347486180</string>
+    <string name="fb_login_protocol_scheme">fb1095513347486180</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Intro Activity and Fragments -->
+    <string name="intro1_image_cd">Man reading a newspaper</string>
+    <string name="aletheia">Aletheia</string>
+    <string name="intro1_textBody">Corporate news, community vetted</string>
+    <string name="right_arrow_button">right arrow button</string>
+    <string name="intro2_headline">Aletheia relies on the community to rate news and make claims.</string>
+    <string name="intro2_body">* Claims are a way to argue the veracity of a piece of news</string>
+    <string name="intro2_image_cd">Illustration representing community vetting</string>
+    <string name="intro1_button_cd">Right pointing arrow in green</string>
+    <string name="intro2_button_cd">Right pointing arrow in blue</string>
+    <string name="intro3_banner_cd">Illustration representing moderators of the platform</string>
+    <string name="intro3_headline">We employ a team of passionate moderators that evaluate claims and balance the platform</string>
+    <string name="intro3_body">* Moderator ratings are more valuable, but anyone from the community can be promoted to moderator</string>
+    <string name="intro3_button_cd">Check-mark button in violet</string>
+    <string name="before_word">Before Word …</string>
+
+    <!-- Authentication Activity and Fragments -->
+    <string name="signup_banner_cd">Illustration representing the signup activity</string>
+    <string name="signup_title">Lets Sign You Up</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="facebook_button_cd">Facebook button</string>
+    <string name="google_button_cd">Google button</string>
+    <string name="twitter_button_cd">Twitter button</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ordot">OR …</string>
+    <string name="take_me_to_login">Take me to LogIn</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcome_back_friend">Welcome back, friend</string>
+    <string name="login_banner_cd">Illustration representing the authentication activity</string>
+    <string name="log_in">Log in</string>
+    <string name="or_sign_in_with">Or sign in with</string>
+    <string name="back_button_cd">Back button</string>
+    <string name="type_your_password">Type your password</string>
+    <string name="i_already_have_an_account">I already have an account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nice_to_meet_you">Nice to meet you!</string>
+    <string name="aletheia_icon">Aletheia icon</string>
+    <string name="account">Account</string>
+    <string name="burger_menu_item">Burger menu item</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="home">Home</string>
 </resources>
