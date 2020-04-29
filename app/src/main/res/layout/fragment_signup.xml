@@ -51,6 +51,7 @@
         android:layout_marginHorizontal="@dimen/margin_il"
         android:layout_marginTop="@dimen/margin_m"
         android:layout_marginBottom="@dimen/margin_m"
+        android:backgroundTint="@color/brand_color"
         android:background="@drawable/rounded_button_background_main"
         android:text="@string/i_already_have_an_account"
         android:textColor="@color/text_color_white"

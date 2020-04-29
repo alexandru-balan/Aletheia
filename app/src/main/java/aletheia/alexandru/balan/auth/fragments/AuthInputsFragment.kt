@@ -99,7 +99,12 @@ class AuthInputsFragment : Fragment() {
                             if (task.isSuccessful) {
                                 Log.i(logTag, "Successfully created user")
                                 user = auth.currentUser!!
-                                // TODO: Redirect to app
+
+                                // Go to home activity
+                                val intent = Intent(context, HomeActivity::class.java)
+                                val args = bundleOf("user" to user)
+                                startActivity(intent, args)
+                                it1.finish()
                             } else {
                                 Log.w(logTag, "Could not create the user", task.exception)
                                 Toast.makeText(
@@ -199,6 +204,12 @@ class AuthInputsFragment : Fragment() {
                 if (task.isSuccessful) {
                     Log.i(logTag, "Google auth success")
                     user = auth.currentUser!!
+
+                    // Go to home activity
+                    val intent = Intent(context, HomeActivity::class.java)
+                    val args = bundleOf("user" to user)
+                    startActivity(intent, args)
+                    it.finish()
                 } else {
                     Log.w(logTag, "Google auth fail", task.exception)
                     Toast.makeText(context, "Sign in failed", Toast.LENGTH_SHORT).show()
@@ -214,6 +225,12 @@ class AuthInputsFragment : Fragment() {
                 if (task.isSuccessful) {
                     Log.i(logTag, "Facebook auth successful")
                     user = auth.currentUser!!
+
+                    // Go to home activity
+                    val intent = Intent(context, HomeActivity::class.java)
+                    val args = bundleOf("user" to user)
+                    startActivity(intent, args)
+                    it.finish()
                 } else {
                     Log.w(logTag, "Facebook auth failure", task.exception)
                     Toast.makeText(
